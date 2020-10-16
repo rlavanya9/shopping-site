@@ -65,9 +65,22 @@ def show_shopping_cart():
     # The logic here will be something like:
     #
     # - get the cart dictionary from the session
+    cart_details = session.get("cart",{})
+    print(cart_details)
     # - create a list to hold melon objects and a variable to hold the total
+    for melon_id in cart_details.keys():        
+        melon = show_melon(melon_id)
+        count = cart_details[melon_id]
+        print(melon)
+    # melons_list = [cart_details[melon_id]]
+    # print(melons_list)
+    # melon_total = cart_details[price]  
+    # print(melon_total)      
     #   cost of the order
     # - loop over the cart dictionary, and for each melon id:
+    # for melon_id,count in cart_details:     
+    #     melons_list.append(melon_id)
+    #     print(melons_list)
     #    - get the corresponding Melon object
     #    - compute the total cost for that type of melon
     #    - add this to the order total
